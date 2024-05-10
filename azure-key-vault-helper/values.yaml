@@ -1,0 +1,47 @@
+# Default values for azure-key-vault-helper.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+namespace: default
+keyVaultName: "my-keyvault-name"
+tenantId: "tenant-id"
+userAssignedIdentityID: "user-assigned-identity-id"
+
+objects: {}
+  # - name: argo-ssh-private-key
+  #   type: secret
+  #   alias: argo-ssh-private-key
+  # - name: argo-repository-url
+  #   type: secret
+  #   alias: argo-repository-url
+  # - name: argo-infrastructure-repository-type
+  #   type: secret
+  #   alias: argo-infrastructure-repository-type
+  # - name: argo-infrastructure-repository-url
+  #   type: secret
+  #   alias: argo-infrastructure-repository-url
+
+secretsMounter: 
+  enabled: true
+  image: 
+    repository: "kvalitetsit/go-loop"
+    tag: "1.0.0"
+
+secretObjects: {}
+  # - data:
+  #   - key: argo-ssh-private-key
+  #     objectName: argo-ssh-private-key
+  #   - key: argo-repository-url
+  #     objectName: argo-repository-url
+  #   secretName: argo-secrets
+  #   labels:
+  #     label1: "label1_1"
+  #     label2: "label2_2"
+  #   type: Opaque
+  # - data:
+  #   - key: argo-infrastructure-repository-type
+  #     objectName: argo-infrastructure-repository-type
+  #   - key: argo-infrastructure-repository-url
+  #     objectName: argo-infrastructure-repository-url
+  #   secretName: argo-secrets-infrastructure
+  #   type: Opaque    
