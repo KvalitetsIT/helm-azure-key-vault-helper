@@ -10,11 +10,24 @@ A helm chart for providing Azure Key vault entries as Kubernetes secrets
 |-----|------|---------|-------------|
 | keyVaultName | string | `"my-keyvault-name"` |  |
 | namespace | string | `"default"` |  |
+| nodeAffinityPreset.key | string | `""` |  |
+| nodeAffinityPreset.type | string | `""` |  |
+| nodeAffinityPreset.values | list | `[]` |  |
 | objects | object | `{}` |  |
+| podAffinityPreset | string | `""` |  |
+| podAntiAffinityPreset | string | `"soft"` |  |
 | secretObjects | object | `{}` |  |
 | secretsMounter.enabled | bool | `true` |  |
+| secretsMounter.image.pullPolicy | string | `"IfNotPresent"` |  |
 | secretsMounter.image.repository | string | `"kvalitetsit/go-loop"` |  |
 | secretsMounter.image.tag | string | `"1.0.0"` |  |
+| secretsMounter.replicaCount | int | `2` |  |
+| secretsMounter.resources.requests.cpu | string | `"10m"` |  |
+| secretsMounter.resources.requests.memory | string | `"3Mi"` |  |
+| secretsMounter.securityContext.allowPrivilegeEscalation | bool | `false` |  |
+| secretsMounter.securityContext.readOnlyRootFilesystem | bool | `true` |  |
+| secretsMounter.securityContext.runAsNonRoot | bool | `true` |  |
+| secretsMounter.securityContext.runAsUser | int | `1000` |  |
 | tenantId | string | `"tenant-id"` |  |
 | userAssignedIdentityID | string | `"user-assigned-identity-id"` |  |
 
