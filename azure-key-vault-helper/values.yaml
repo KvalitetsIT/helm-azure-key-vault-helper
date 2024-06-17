@@ -23,9 +23,20 @@ objects: {}
 
 secretsMounter: 
   enabled: true
+  replicaCount: 2
   image: 
     repository: "kvalitetsit/go-loop"
     tag: "1.0.0"
+    pullPolicy: IfNotPresent
+  securityContext:
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 1000
+    allowPrivilegeEscalation: false
+  resources: 
+    requests:
+      cpu: 10m
+      memory: 3Mi
 
 secretObjects: {}
   # - data:
@@ -45,3 +56,35 @@ secretObjects: {}
   #     objectName: argo-infrastructure-repository-url
   #   secretName: argo-secrets-infrastructure
   #   type: Opaque    
+
+## @param operator.podAffinityPreset Pod affinity preset
+## Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
+## Allowed values: soft, hard
+##
+podAffinityPreset: ""
+
+## @param operator.podAntiAffinityPreset Pod anti-affinity preset.
+## Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
+## Allowed values: `soft` or `hard`
+##
+podAntiAffinityPreset: "soft"
+
+## Node affinity preset
+## Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity
+##
+nodeAffinityPreset:
+  ## @param operator.nodeAffinityPreset.type Node affinity preset type. Allowed values: `soft` or `hard`
+  ##
+  type: ""
+  ## @param operator.nodeAffinityPreset.key Set nodeAffinity preset key
+  ## E.g.
+  ## key: "kubernetes.io/e2e-az-name"
+  ##
+  key: ""
+  ## @param operator.nodeAffinityPreset.values Set nodeAffinity preset values
+  ## E.g.
+  ## values:
+  ##   - e2e-az1
+  ##   - e2e-az2
+  ##
+  values: []

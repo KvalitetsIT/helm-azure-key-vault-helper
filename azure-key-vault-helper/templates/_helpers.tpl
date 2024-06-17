@@ -46,11 +46,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "azure-key-vault-helper.backend.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "azure-key-vault-helper.name" . }}-backend
-app.kubernetes.io/instance: {{ .Release.Name }}-backend
-{{- end }}
-{{- define "azure-key-vault-helper.frontend.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "azure-key-vault-helper.name" . }}-frontend
-app.kubernetes.io/instance: {{ .Release.Name }}-frontend
+{{- define "azure-key-vault-helper.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "azure-key-vault-helper.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
