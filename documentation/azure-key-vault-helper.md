@@ -20,9 +20,9 @@ A helm chart for providing Azure Key vault entries as Kubernetes secrets
 | secretsMounter.enabled | bool | `true` |  |
 | secretsMounter.image.pullPolicy | string | `"IfNotPresent"` |  |
 | secretsMounter.image.repository | string | `"kvalitetsit/go-loop"` |  |
-| secretsMounter.image.tag | string | `"1.0.0"` |  |
-| secretsMounter.replicaCount | int | `2` |  |
-| secretsMounter.resources.requests.cpu | string | `"10m"` |  |
+| secretsMounter.image.tag | string | `"1.1.0"` |  |
+| secretsMounter.replicaCount | int | `1` |  |
+| secretsMounter.resources.requests.cpu | string | `"1m"` |  |
 | secretsMounter.resources.requests.memory | string | `"3Mi"` |  |
 | secretsMounter.securityContext.allowPrivilegeEscalation | bool | `false` |  |
 | secretsMounter.securityContext.readOnlyRootFilesystem | bool | `true` |  |
