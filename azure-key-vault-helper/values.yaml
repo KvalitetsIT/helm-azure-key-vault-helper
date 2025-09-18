@@ -17,10 +17,10 @@ objects: {}
 
 secretsMounter: 
   enabled: true
-  replicaCount: 2
+  replicaCount: 1
   image: 
     repository: "kvalitetsit/go-loop"
-    tag: "1.0.0"
+    tag: "1.1.0"
     pullPolicy: IfNotPresent
   securityContext:
     readOnlyRootFilesystem: true
@@ -28,8 +28,11 @@ secretsMounter:
     runAsUser: 1000
     allowPrivilegeEscalation: false
   resources: 
+    # limits:
+    #   cpu: 10m
+    #   memory: 3Mi
     requests:
-      cpu: 10m
+      cpu: 1m
       memory: 3Mi
 
 secretObjects: {}
