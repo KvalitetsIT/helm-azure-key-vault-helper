@@ -5,3 +5,6 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 10
+    # Wait 14 days before updating to help circumvent supply chain attacks
+    cooldown:
+      default-days: 14
